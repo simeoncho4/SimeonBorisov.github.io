@@ -1,6 +1,401 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1>It works</h1>
-  </body>
-</html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Това е сайт за продажба на алкохолни напитки, перилни препарати и продукти от Victorinox и Bardahl.">  
+    <meta name="keywords" content="уиски, узо, вино, алкохол, продукти, перилни препарати, bardahl, victorinox, ножове"> 
+    <meta name="author" content="Вашето име или компания"> <!-- Информация за автора на сайта -->
+    <meta property="og:title" content="Име на сайта"> <!-- Заглавие за социалните мрежи (Open Graph) -->
+    <meta property="og:description" content="Описание на сайта за социални мрежи (Open Graph)"> <!-- Описание за социални мрежи -->
+    <meta property="og:image" content="url_на_изображението.jpg"> <!-- Изображение за социалните мрежи -->
+    <meta name="robots" content="index, follow"> <!-- Дава инструкции на търсачките как да индексират страницата -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- За съвместимост с по-стари версии на Internet Explorer -->
+    <title>Ime na saita</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    <header>
+        <h1>Добре дошли</h1>
+    </header>
+
+    <nav>
+
+
+        <a href="#" onclick="showSection('about')">За нас</a>
+        <div class="dropdown">
+            <a href="#">Продукти</a>
+            <div class="dropdown-content">
+                <a href="#" onclick="showSection('alcohol')">Алкохол</a>
+                <a href="#" onclick="showSection('detergents')">Перилни препарати</a>
+                <a href="#" onclick="showSection('victorinox')">Victorinox</a>
+                <a href="#" onclick="showSection('bardahl')">Bardahl</a>
+            </div>
+        </div>
+        <a href="#" onclick="showSection('contacts')">Контакти</a>
+        <a href="#" onclick="showSection('payment')">Плащане</a>
+    
+    </nav>
+
+    <div class="section active" id="about">
+        <h2>За нас</h2>
+        <p>Това е информация за нас. Можете да добавите повече информация тук.</p>
+    </div>
+
+    <div class="section" id="contacts">
+        <h2>Контакти</h2>
+        <p><strong>Телефон: 0876344184</strong></p>
+        <p><strong>Имейл: ceborissov@abv.bg</strong></p>
+    </div>
+
+    <!-- Payment section: secure and simple Stripe Payment Link (no server required) -->
+    <div class="section" id="payment">
+        <h2>Плащане</h2>
+        <p>За да платите онлайн, натиснете бутона по-долу. <strong>Заменете href стойността с вашия Stripe Payment Link</strong> от Stripe Dashboard.</p>
+    <!-- Replace the href value with the Payment Link you create in Stripe (starts with https://buy.stripe.com/...) -->
+    <a id="stripe-payment-link" class="payment-btn" href="REPLACE_WITH_STRIPE_PAYMENT_LINK" target="_blank" rel="noopener">Плати онлайн</a>
+    <!-- New button opens the same Stripe Payment Link in a popup window where customers can securely enter card details -->
+    <button id="card-pay-button" class="payment-btn card" type="button">Плати с карта</button>
+    </div>
+
+
+    <div class="section" id="alcohol">
+        <h2>Алкохол</h2>
+        <div class="subcategory-buttons">
+            <button onclick="showSubcategory('whiskey')">Уиски</button>
+            <button onclick="showSubcategory('uzo')">Узо</button>
+            <button onclick="showSubcategory('wine')">Вино</button>
+            <button onclick="showSubcategory('vodka')">Водка</button>
+        </div>
+
+        <div class="subcategory" id="whiskey">
+            <h3>Уиски</h3>
+            <div class="product-images">
+                <div class="product-item">
+                    <img src="уиски глен клайд блендед скотч уиски.jpg">
+                    <div class="hover-text">Glen Clyde Blended Scotch Whiskey</div>
+                </div>
+                <div class="product-item">
+                    <img src="глед 12.jpg">
+                    <div class="hover-text">Glen Clyde  Blended Scotch Whiskey отлежало 12г.</div>
+                </div>
+                <div class="product-item">
+                    <img src="у0,7.png">
+                    <div class="hover-text">Ханки Банистър 1л.</div>
+                </div>
+                <div class="product-item">
+                    <img src="у0,7.png">
+                    <div class="hover-text">Ханки Банистър 0,7л.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="subcategory" id="uzo">
+            <h3>Узо Мелтеми:</h3>
+            <div class="product-images">
+                <div class="product-item">
+                    <img src="uzo.jpg" alt="Узо">
+                    <div class="hover-text">Узо Meltemi Gatsios</div>      
+                </div>
+            </div>               
+        </div>
+
+        <div class="subcategory" id="wine">
+            <h2>Вино мерло 0,75 л</h2>
+            <div class="product-images">
+                <div class="product-item">
+                    <img src="свети георги.jpg" alt="Вино Свети Георги">
+                    <div class="hover-text">Свети Георги</div>
+                </div>
+                <div class="product-item">
+                    <img src="света софия златно.jpg" alt="Вино Света София златно">
+                    <div class="hover-text">Света София златно</div>
+                </div>
+                <div class="product-item">
+                    <img src="света софия черно.png" alt="Вино Света София черно">
+                    <div class="hover-text">Света София черно</div>
+                </div>
+                <div class="product-item">
+                    <img src="дева мария.jpg" alt="Вино Дева Мария">
+                    <div class="hover-text">Дева Мария</div>
+                </div>
+                <div class="product-item">
+                    <img src="свети георги.jpg" alt="Вино Свети Георги">
+                    <div class="hover-text">Свети Георги</div>
+                </div>
+                <div class="product-item">
+                    <img src="свети мина.jpg" alt="Вино Свети Мина">
+                    <div class="hover-text">Свети Мина</div>
+                </div>
+                <div class="product-item">
+                    <img src="свети николай.jpg" alt="Вино Свети Николай">
+                    <div class="hover-text">Свети Николай</div>
+                </div>
+                <div class="product-item">
+                    <img src="свети димитър.jpg" alt="Вино Свети Димитър">
+                    <div class="hover-text">Свети Димитър</div>
+                </div>
+                <div class="product-item">
+                    <img src="Александър Невски зелено.jpg" alt="Вино Александър Невски зелено">
+                    <div class="hover-text">Александър Невски зелено</div>
+                </div>
+                <div class="product-item">
+                    <img src="Откровение черно.jpg" alt="Вино Откровение">
+                    <div class="hover-text">Откровение черно</div>
+                </div>
+                <div class="product-item">
+                    <img src="Рилски Манастир черно златно.jpg" alt="Вино Рилски манастир черно златно">
+                    <div class="hover-text">Рилски Манастир черно и златно</div>
+                </div>
+                <div class="product-item">
+                    <img src="Цар Симеон.jpg" alt="Вино цар Симеон">
+                    <div class="hover-text">Цар Симеон</div>
+                </div>
+                <div class="product-item">
+                    <img src="александър велики.jpg" alt="Вино Александър Велики">
+                    <div class="hover-text">Александър Велики</div>
+                </div>
+                <div class="product-item">
+                    <img src="александъв невски черно.jpg" alt="Вино Александър Невски">
+                    <div class="hover-text">Александър Невски черно</div>
+                </div>      
+
+                <div class="product-item">
+                    <img src="Стар град зелено с розово.jpg" alt="Вино Стар град зелено с розово">
+                    <div class="hover-text">Стар град зелено</div>
+                </div>
+                <div class="product-item">
+                    <img src="Гирлянди.jpg" alt="Вино Гирлянди">
+                    <div class="hover-text">Гирлянди</div>
+                </div>
+                <div class="product-item">
+                    <img src="Риба.jpg" alt="Вино Риба">
+                    <div class="hover-text">Риба</div>
+                </div>
+                <div class="product-item">
+                    <img src="Художник.jpg" alt="Вино Художник">
+                    <div class="hover-text">Художник</div>
+                </div>
+                <div class="product-item">
+                    <img src="Царевец.jpg" alt="Вино Царевец">
+                    <div class="hover-text">Царевец</div>
+                </div>
+                <div class="product-item">
+                    <img src="Грозде.jpg" alt="Вино Грозде">
+                    <div class="hover-text"> Грозде</div>
+                </div>
+                <div class="product-item">
+                    <img src="старо грозде златно.jpg" alt="Вино Старо грозде златно">
+                    <div class="hover-text">Старо грозде златно</div>
+                </div>
+                <div class="product-item">
+                    <img src="старо грозде.jpg" alt="Вино Старо грозде">
+                    <div class="hover-text">Старо грозде</div>
+                </div>           
+                <div class="product-item">
+                    <img src="мелник.jpg" alt="Вино Мелник">
+                    <div class="hover-text">Мелник</div>
+                </div>
+                <div class="product-item">
+                    <img src="троянски манастир.jpg" alt="Вино Троянски манастир">
+                    <div class="hover-text">Троянски манастир</div>
+                </div>
+                <div class="product-item">
+                    <img src="боровец.jpg" alt="Вино Боровец">
+                    <div class="hover-text">Боровец</div>
+                </div>
+                <div class="product-item">
+                    <img src="банско.jpg" alt="Вино Банско">
+                    <div class="hover-text">Банско</div>
+                </div>
+                <div class="product-item">
+                    <img src="софия.jpg" alt="Вино София">
+                    <div class="hover-text">София</div>
+                </div>
+                <div class="product-item">
+                    <img src="пловдив.jpg" alt="Вино Пловдив">
+                    <div class="hover-text">Пловдив</div>
+                </div>
+                <div class="product-item">
+                    <img src="слънчев бряг.jpg" alt="Вино Слънчев бряг">
+                    <div class="hover-text">Слънчев бряг</div>
+                </div>
+                <div class="product-item">
+                    <img src="варна.jpg" alt="Вино Варна">
+                    <div class="hover-text">Варна</div>
+                </div>
+                <div class="product-item">
+                    <img src="коледа.jpg" alt="Вино Коледа">
+                    <div class="hover-text">Коледа</div>
+                </div>
+                      
+                <div class="product-item">
+                    <img src="несебър.jpg" alt="Вино Несебър">
+                    <div class="hover-text">Несебър</div>
+                </div>
+                <div class="product-item">
+                    <img src="лъв.jpg" alt="Вино Лъв">
+                    <div class="hover-text">Лъв</div>
+                </div>
+                <div class="product-item">
+                    <img src="куче.jpg" alt="Вино Куче">
+                    <div class="hover-text">Куче</div>
+                </div>
+                <div class="product-item">
+                    <img src="котка.jpg" alt="Вино Котка">
+                    <div class="hover-text">Котка</div>
+                </div>
+                <div class="product-item">
+                    <img src="мечка.jpg" alt="Вино Мечка">
+                    <div class="hover-text">Мечка</div>
+                </div>
+                <div class="product-item">
+                    <img src="леопард.jpg" alt="Вино Леопард">
+                    <div class="hover-text">Леопард</div>
+                </div>
+                <div class="product-item">
+                    <img src="маймуна.jpg" alt="Вино Маймуна">
+                    <div class="hover-text">Маймуна</div>
+                </div>
+                <div class="product-item">
+                    <img src="паун.jpg" alt="Вино Паун">
+                    <div class="hover-text">Паун</div>
+                </div>
+                <div class="product-item">
+                    <img src="орел.jpg" alt="Вино Орел">
+                    <div class="hover-text">Орел</div>
+                </div>
+                <div class="product-item">
+                    <img src="маймуни.jpg" alt="Вино Маймуни">
+                    <div class="hover-text">Маймуни</div>
+                </div>
+                <div class="product-item">
+                    <img src="мъж.jpg" alt="Вино Мъж">
+                    <div class="hover-text">Мъж</div>
+                </div>
+                <div class="product-item">
+                    <img src="жена.jpg" alt="Вино Жена">
+                    <div class="hover-text">Жена</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="subcategory" id="vodka">
+            <h3>Водка:</h3>
+            <div class="product-images">
+                <div class="product-item">
+                    <img src="ImeNaVodka.jpg" alt="снимка на водка">
+                    <div class="hover-text">Водка</div>      
+                </div>
+            </div>               
+        </div>
+    </div>
+
+    <div class="section" id="detergents">
+        <h2>Перилни препарати</h2>
+        <div class="detergents-gallery">
+            <div class="product" data-title="Тук пишеш Това">
+                <img src="1.jpeg" alt="Продукт 1" onclick="openModal('1.jpeg', 'Най-добрият препарат')" />
+            </div>
+            <div class="product" data-title="Продукт 2 описание">
+                <img src="2.jpeg" alt="Продукт 2" onclick="openModal('2.jpeg', 'Продукт 2 описание')" />
+            </div>
+            <div class="product" data-title="Продукт 3 описание">
+                <img src="3.jpeg" alt="Продукт 3" onclick="openModal('3.jpeg', 'Продукт 3 описание')" />
+            </div>
+            <div class="product" data-title="Продукт 4 описание">
+                <img src="4.jpeg" alt="Продукт 4" onclick="openModal('4.jpeg', 'Продукт 4 описание')" />
+            </div>
+            <div class="product" data-title="Продукт 5 описание">
+                <img src="5.jpeg" alt="Продукт 5" onclick="openModal('5.jpeg', 'Продукт 5 описание')" />
+            </div>
+            <div class="product" data-title="Продукт 6 описание">
+                <img src="6.jpeg" alt="Продукт 6" onclick="openModal('6.jpeg', 'Продукт 6 описание')" />
+            </div>
+            <div class="product" data-title="Продукт 7 описание">
+                <img src="7.jpeg" alt="Продукт 7" onclick="openModal('7.jpeg', 'Продукт 7 описание')" />
+            </div>
+            <div class="product" data-title="Продукт 8 описание">
+                <img src="8.jpeg" alt="Продукт 8" onclick="openModal('8.jpeg', 'Продукт 8 описание')" />
+            </div>
+            <div class="product" data-title="Продукт 9 описание">
+                <img src="9.jpeg" alt="Продукт 9" onclick="openModal('9.jpeg', 'Продукт 9 описание')" />
+            </div>
+            <div class="product" data-title="Продукт 10 описание">
+                <img src="10.jpeg" alt="Продукт 10" onclick="openModal('10.jpeg', 'Продукт 10 описание')" />
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модал за големи изображения -->
+    <div id="imageModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(event)">&times;</span>
+            <img id="modalImage" src="" alt="Голямо изображение">
+            <p id="modalText"></p>
+        </div>
+    </div>
+    
+
+
+
+    <div class="section" id="victorinox">
+  <h2>Victorinox Ножове</h2>
+  <div id="victorinoxGallery">
+    
+    <div class="product">
+      <div class="carousel" id="carousel1"></div>
+      <p>име на ножа</p>
+    </div>
+    
+    <div class="product">
+      <div class="carousel" id="carousel2"></div>
+      <p>име на ножа</p>
+    </div>
+    
+    <div class="product">
+      <div class="carousel" id="carousel3"></div>
+      <p>име на ножа</p>
+    </div>
+
+  </div>
+</div>
+
+
+ <script src="script.js"></script>
+
+<!-- Small helper script: opens the Stripe Payment Link in a popup window.
+         It uses the same Payment Link URL you placed in the anchor with id="stripe-payment-link".
+         If you haven't replaced the placeholder, it will show an alert. -->
+<script>
+    function openCardPayment() {
+        var linkEl = document.getElementById('stripe-payment-link');
+        if (!linkEl) return alert('Плащането не е настроено.');
+        var url = linkEl.getAttribute('href');
+        if (!url || url === 'REPLACE_WITH_STRIPE_PAYMENT_LINK') {
+            return alert('Моля, заменете REPLACE_WITH_STRIPE_PAYMENT_LINK с вашия Stripe Payment Link.');
+        }
+        // Open Stripe-hosted checkout in a small popup window (secure, hosted by Stripe)
+        window.open(url, 'stripe_checkout', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=520,height=780');
+    }
+
+    // Attach click handler after DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('card-pay-button');
+        if (btn) btn.addEventListener('click', openCardPayment);
+    });
+</script>
+
+<!-- Footer must be inside <body> -->
+<footer>
+        <p>&copy; 2025 Име на Сайта. Всички права запазени.</p>
+        <p>Адрес: ул. Примерна 12, София, България</p>
+        <p>Последна актуализация: 29 януари 2025 г.</p>
+</footer>
+
+</body>
+
+
+
