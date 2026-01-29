@@ -1,0 +1,722 @@
+html, body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfdfd;
+            color: #333;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+footer p{
+ margin: 5px 0;
+    font-size: 0.9rem;
+}
+    footer {
+    background: linear-gradient(90deg, #43cea2, #185a9d);  
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+     }  
+
+       
+        header {
+            background: linear-gradient(90deg, #43cea2, #185a9d);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #185a9d;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a, .dropdown {
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a:hover {
+            background-color: #43cea2;
+            color: #fff;
+        }
+
+        nav .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #185a9d;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            left: 0;
+        }
+
+        nav .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav .dropdown-content a:hover {
+            background-color: #43cea2;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .section {
+            display: none;
+            padding: 2rem;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .product-images img {
+            width: 200px;
+            height: auto;
+            margin: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subcategory-buttons {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .subcategory-buttons button {
+            background-color: #185a9d;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .subcategory-buttons button:hover {
+            background-color: #43cea2;
+            transform: scale(1.05);
+        }
+
+        .subcategory-buttons button:active {
+            background-color: #2d89a6;
+        }
+
+        .subcategory {
+            display: none;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            margin-top: 1rem;
+            border-radius: 8px;
+        }
+
+        .subcategory.active {
+            display: block;
+        }
+
+       
+     
+
+button:hover {
+    background-color: #43cea2;
+}
+
+
+                   
+        .product-item {
+            position: relative;
+            display: inline-block;
+            margin: 1rem;
+        }
+
+        .product-item img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(240, 233, 233, 0.79);
+        }
+
+        .hover-text {
+            position: absolute;
+            bottom: 10px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            background-color: rgba(0, 0, 1, 0.734);
+            color: rgb(255, 255, 255);
+            padding: 5px;
+            border-radius: 5px;
+            visibility: hidden;
+            font-size: 14px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .product-item:hover .hover-text {
+            visibility: visible; 
+        }
+
+        .product-images {
+    display: flex;
+    flex-wrap: wrap;  /* За да се подреждат продуктите на нов ред при нужда */
+    justify-content: center;  /* Центрира изображенията в контейнера */
+    gap: 1rem;  /* Добавя разстояние между продуктите */
+}
+
+.product-item {
+    position: relative;
+    margin: 1rem;
+    width: 150px;  /* Може да промените размерите на изображенията */
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(240, 233, 233, 0.79);
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover img {
+    transform: scale(1.05);  /* Изображението леко се увеличава при ховър */
+}
+
+.hover-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);  /* Черен фон с прозрачност */
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    visibility: hidden;  /* По подразбиране текстът е скрит */
+    font-size: 14px;
+    text-align: center;
+    width: 80%;
+}
+
+.product-item:hover .hover-text {
+    visibility: visible;  /* Текстът става видим при ховър */
+}
+
+
+
+
+nav .dropdown {
+    position: relative;
+}
+
+nav .dropdown-content {
+    min-width: 160px;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav a, .dropdown {
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+nav {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.product-item img[src="мъж.jpg"] {
+    width: 100px; /* Примерна стойност */
+    height: 200px;
+}
+
+
+
+
+
+#imageText {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+
+
+/* За да покажем подменюто при hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Стилове за самото подменю */
+.dropdown-content {
+    display: none;  /* Скрито по подразбиране */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Стилове за линковете в подменюто */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Променяме цвета при hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+
+/* Модален прозорец */
+.modal {
+    display: none; /* По подразбиране е скрит */
+    position: fixed;
+    z-index: 1; /* Да е над всички елементи на страницата */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 60px;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+#modal-text {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 колони */
+    gap: 10px; /* Разстояние между изображенията */
+    margin: 20px; /* Разстояние около галерията */
+}
+
+.image-gallery img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.1); /* Леко уголемяване на изображението при ховър */
+}
+
+.detergents-gallery { 
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr);
+ gap: 5px; 
+ padding: 20px; 
+ justify-items: center; 
+}
+
+.product {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+.product img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover img {
+    transform: scale(1.05);
+}
+
+/* Tooltip за hover */
+.product::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.product:hover::after {
+    opacity: 1;
+}
+
+/* Стил за модалното изображение */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    text-align: center;
+    position: relative;
+}
+
+.modal img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.modal p {
+    color: white;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Бутон за затваряне */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+
+.product {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+.product:hover img {
+    transform: scale(1.1);
+}
+
+/* Tooltip за hover */
+.product::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.product:hover::after {
+    opacity: 1;
+}
+
+/* Стил за модалното изображение */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    text-align: center;
+    position: relative;
+}
+
+.modal img {
+    width: auto;
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 10px;
+}
+
+.modal p {
+    color: white;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Бутон за затваряне */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+
+.modal img {
+    max-width: 95%;
+}
+
+.product {
+    margin-bottom: 20px; /* Разстояние между продуктите */
+}
+
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.carousel img.active {
+    opacity: 1;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    text-align: center;
+    position: relative;
+}
+
+.modal img {
+    width: auto;
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 10px;
+}
+
+.modal p {
+    color: white;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.carousel {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+
+/* Victorinox секция */
+#victorinoxGallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  align-items: start;
+  padding: 20px;
+}
+
+#victorinoxGallery .product {
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+#victorinoxGallery .carousel {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#victorinoxGallery .carousel img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  cursor: pointer;
+}
+
+#victorinoxGallery .carousel img.active {
+  opacity: 1;
+}
+
+/* Responsive — 2 колони при таблет, 1 при телефон */
+@media (max-width: 900px) {
+  #victorinoxGallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #victorinoxGallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Payment buttons - consistent size and look */
+.payment-btn {
+    display: inline-block;
+    min-width: 180px; /* same minimum width for both */
+    padding: 12px 20px;
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    line-height: 1; /* keep consistent height */
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.payment-btn + .payment-btn { margin-left: 8px; }
+
+/* blue (Stripe) and green (card) variants */
+#stripe-payment-link.payment-btn { background: #6772e5; }
+.payment-btn.card { background: #24a148; }
+
+/* Make buttons responsive on small screens */
+@media (max-width: 480px) {
+    .payment-btn { display: block; width: calc(100% - 40px); margin: 8px auto; }
+}
